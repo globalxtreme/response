@@ -1,4 +1,4 @@
-GlobalXtreme Parser
+GlobalXtreme Response
 ======
 
 [![Latest Release](https://poser.pugx.org/globalxtreme/response/v/stable.png)](https://packagist.org/packages/globalxtreme/response)
