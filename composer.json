@@ -1,6 +1,7 @@
 {
   "name": "globalxtreme/response",
   "description": "GlobalXtreme Response Pattern",
+  "license": "MIT",
   "authors": [
     {
       "name": "Yuswa",
@@ -17,8 +18,8 @@
   },
   "require": {
     "php": "8.*",
-    "illuminate/support": "^8.83|^9.0",
-    "ysw-pattern/response": "1.0.2"
+    "globalxtreme/parser": "dev-master",
+    "illuminate/support": "^8.83|^9.0"
   },
   "extra": {
     "laravel": {
@@ -30,11 +31,5 @@
   "config": {
     "sort-packages": true
   },
-  "minimum-stability": "dev",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/globalxtreme/parser.git"
-    }
-  ]
+  "minimum-stability": "dev"
 }
