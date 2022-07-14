@@ -41,7 +41,7 @@ if (!function_exists("error")) {
     function error(array|null $error = null, string|null $internalMsg = null, array|null $attributes = null)
     {
         $error = $error ?: \GlobalXtreme\Response\Constant\ResponseConstant::ERROR;
-        throw new ErrorException($error, $internalMsg, $attributes);
+        throw new \GlobalXtreme\Response\Exception\ErrorException($error, $internalMsg, $attributes);
     }
 
 }
