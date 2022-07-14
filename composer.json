@@ -1,0 +1,30 @@
+{
+  "name": "globalxtreme/response",
+  "description": "GlobalXtreme Response Pattern",
+  "authors": [
+    {
+      "name": "Yuswa",
+      "email": "yuswa98@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "GlobalXtreme\\Response\\": "src/"
+    },
+    "files": [
+      "src/Misc/helpers.php",
+      "src/Misc/Status/global.php"
+    ]
+  },
+  "require": {
+    "php": "8.*",
+    "illuminate/support": "^8.83"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "GlobalXtreme\\Response\\ResponseServiceProvider"
+      ]
+    }
+  }
+}
