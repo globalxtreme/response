@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+use GlobalXtreme\Response\Constant\ResponseConstant;
+
+class Error extends ResponseConstant
+{
+    /* -- DEFAULT -- */
+    const DEFAULT = ['code' => 'DF0000', 'msg' => 'Process is failed'];
+}
