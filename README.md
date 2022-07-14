@@ -1,9 +1,9 @@
 GlobalXtreme Response
 ======
 
-[![Latest Release](https://poser.pugx.org/globalxtreme/response/v/stable.png)](https://packagist.org/packages/globalxtreme/response)
-[![Total Downloads](https://poser.pugx.org/globalxtreme/response/downloads.png)](https://packagist.org/packages/globalxtreme/response)
-[![License](https://poser.pugx.org/globalxtreme/response/license.png)](https://packagist.org/packages/globalxtreme/response)
+[![Version](http://poser.pugx.org/globalxtreme/response/version)](https://packagist.org/packages/globalxtreme/response)
+[![Total Downloads](http://poser.pugx.org/globalxtreme/response/downloads)](https://packagist.org/packages/globalxtreme/response)
+[![License](http://poser.pugx.org/globalxtreme/response/license)](https://packagist.org/packages/globalxtreme/response)
 
 ### Install with composer
 
