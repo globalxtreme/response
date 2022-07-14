@@ -4,11 +4,11 @@ namespace GlobalXtreme\Response\Constant;
 
 class ResponseConstant
 {
-    /* -- DEFAULT -- */
+    /** --- DEFAULT --- */
     const SUCCESS = ['code' => 200, 'msg' => 'Success'];
     const ERROR = ['code' => 500, 'msg' => 'An error occurred'];
 
-    /* -- GLOBAL -- */
+    /** --- GLOBAL --- */
     const GLOBAL = [
         'VALIDATION' => [
             'code' => 'GL0001',

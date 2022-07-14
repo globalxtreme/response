@@ -1,6 +1,6 @@
 <?php
 
-use {{ rootNamespace }}\Packages\Response\Constant\Error;
+use {{ rootNamespace }}Packages\Response\Constant\Error;
 
 if (!function_exists("errDefault")) {
     function errDefault($internalMsg = "")
