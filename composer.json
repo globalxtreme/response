@@ -20,9 +20,6 @@
     "globalxtreme/parser": "^1.0.0",
     "illuminate/support": "^8.83|^9.0"
   },
-  "replace": {
-    "globalxtreme/parser": "self.version"
-  },
   "extra": {
     "laravel": {
       "providers": [
@@ -30,6 +27,10 @@
       ]
     }
   },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
   "repositories": [
     {
       "type": "vcs",
