@@ -17,12 +17,8 @@
   },
   "require": {
     "php": "8.*",
-    "globalxtreme/parser": "^1.0.0",
-    "barryvdh/laravel-snappy": "^1.0",
-    "illuminate/support": "^8.83|^9.0"
-  },
-  "replace": {
-    "globalxtreme/parser": "self.version"
+    "illuminate/support": "^8.83|^9.0",
+    "ysw-pattern/response": "1.0.2"
   },
   "extra": {
     "laravel": {
