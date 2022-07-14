@@ -4,7 +4,7 @@ Steps when updating this package  :
 
 `git commit -m "initial commit"`
 
-`git tag 1.0.5`
+`git tag 1.0.6`
 
 _Change version to new version_
 

@@ -20,6 +20,9 @@
     "globalxtreme/parser": "^1.0.0",
     "illuminate/support": "^8.83|^9.0"
   },
+  "replace": {
+    "globalxtreme/parser": "self.version"
+  },
   "extra": {
     "laravel": {
       "providers": [
