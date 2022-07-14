@@ -17,6 +17,7 @@
   },
   "require": {
     "php": "8.*",
+    "globalxtreme/parser": "^1.0.0",
     "illuminate/support": "^8.83|^9.0"
   },
   "extra": {
@@ -25,5 +26,11 @@
         "GlobalXtreme\\Response\\ResponseServiceProvider"
       ]
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/globalxtreme/parser.git"
+    }
+  ]
 }

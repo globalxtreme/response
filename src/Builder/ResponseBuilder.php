@@ -2,7 +2,7 @@
 
 namespace GlobalXtreme\Response\Builder;
 
-use App\Services\Parser\Parser;
+use GlobalXtreme\Parser\Parser;
 use GlobalXtreme\Response\Contract\ResponseBuilder as ResponseBuilderContract;
 use GlobalXtreme\Response\Contract\Status;
 use GlobalXtreme\Response\Parse\ResponseParse;
@@ -37,14 +37,12 @@ class ResponseBuilder implements ResponseBuilderContract
     public function setStatus(Status|null $status = null)
     {
         if (!$status) {
-            $status = new Success();
+            $status = new \GlobalXtreme\Response\Status();
         }
 
-        if ($status instanceof Success) {
+        if ($status->success) {
             $this->parse->success = $status->result();
-        }
-
-        if ($status instanceof Error) {
+        } else {
             $this->parse->error = $status->result();
             $this->parse->status = 'error';
         }
