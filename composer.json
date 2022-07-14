@@ -13,7 +13,8 @@
       "GlobalXtreme\\Response\\": "src/"
     },
     "files": [
-      "src/Misc/helpers.php"
+      "src/Misc/helpers.php",
+      "src/Misc/responses.php"
     ]
   },
   "require": {
