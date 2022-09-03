@@ -29,11 +29,11 @@ interface ResponseBuilder
     public function setPagination($data);
 
     /**
-     * @param int $code
+     * @param int $status
      *
      * @return void
      */
-    public function setHttpStatusCode(int $code);
+    public function setHttpStatus(int $status);
 
     /**
      * @return void

@@ -1,5 +1,6 @@
 <?php
 
+use GlobalXtreme\Response\Constant\ResponseConstant;
 use GlobalXtreme\Response\Response;
 use GlobalXtreme\Response\Status;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -10,20 +11,21 @@ if (!function_exists("success")) {
      * @param $data
      * @param array|null $success
      * @param string|null $internalMsg
+     * @param int $httpStatus
      * @param array|null $attributes
      * @param bool $isObject
      * @param array|null $pagination
      *
      * @return \Illuminate\Http\JsonResponse|mixed
      */
-    function success($data = null, array|null $success = null, string|null $internalMsg = null, array|null $attributes = null, bool $isObject = false, array|null $pagination = null)
+    function success($data = null, array|null $success = null, string|null $internalMsg = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'],  array|null $attributes = null, bool $isObject = false, array|null $pagination = null)
     {
-        $success = $success ?: \GlobalXtreme\Response\Constant\ResponseConstant::SUCCESS;
+        $success = $success ?: ResponseConstant::SUCCESS;
 
         $status = new Status(true, $success, $internalMsg, $attributes);
 
         $method = $isObject ? "object" : "json";
-        return Response::$method($status, $data, $pagination);
+        return Response::$method($status, $data, $pagination, $httpStatus);
     }
 
 }
@@ -33,15 +35,16 @@ if (!function_exists("error")) {
     /**
      * @param array|null $error
      * @param string|null $internalMsg
+     * @param int $httpStatus
      * @param array|null $attributes
      *
      * @return \Illuminate\Http\JsonResponse|mixed
      * @throws ErrorException
      */
-    function error(array|null $error = null, string|null $internalMsg = null, array|null $attributes = null)
+    function error(array|null $error = null, string|null $internalMsg = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'], array|null $attributes = null)
     {
-        $error = $error ?: \GlobalXtreme\Response\Constant\ResponseConstant::ERROR;
-        throw new \GlobalXtreme\Response\Exception\ErrorException($error, $internalMsg, $attributes);
+        $error = $error ?: ResponseConstant::ERROR;
+        throw new \GlobalXtreme\Response\Exception\ErrorException($error, $internalMsg, $httpStatus, $attributes);
     }
 
 }

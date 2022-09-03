@@ -24,7 +24,7 @@ abstract class AbstractResponse implements Contract\AbstractResponse
         $builder->setStatus($status);
         $builder->setData($data);
         $builder->setPagination($pagination);
-        $builder->setHttpStatusCode($httpStatus);
+        $builder->setHttpStatus($httpStatus);
 
         if (!$builder->parse->pagination) {
             unset($builder->parse->pagination);
@@ -48,7 +48,7 @@ abstract class AbstractResponse implements Contract\AbstractResponse
         $builder->setStatus($status);
         $builder->setData($data);
         $builder->setPagination($pagination);
-        $builder->setHttpStatusCode($httpStatus);
+        $builder->setHttpStatus($httpStatus);
         $builder->isDataObject();
 
         if (!$builder->parse->pagination) {
