@@ -3,57 +3,57 @@
 use GlobalXtreme\Response\Constant\ResponseConstant;
 
 if (!function_exists("errOccurred")) {
-    function errOccurred($internalMsg = "")
+    function errOccurred($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::ERROR, $internalMsg);
+        error(ResponseConstant::ERROR, $internalMsg, $status);
     }
 }
 
 if (!function_exists("errCredentialIncorrect")) {
-    function errCredentialIncorrect($internalMsg = "")
+    function errCredentialIncorrect($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['CREDENTIAL_INCORRECT'], $internalMsg);
+        error(ResponseConstant::GLOBAL['CREDENTIAL_INCORRECT'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errUnableToGenerateToken")) {
-    function errUnableToGenerateToken($internalMsg = "")
+    function errUnableToGenerateToken($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['UNABLE_TO_GENERATE_TOKEN'], $internalMsg);
+        error(ResponseConstant::GLOBAL['UNABLE_TO_GENERATE_TOKEN'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errUserNotFound")) {
-    function errUserNotFound($internalMsg = "")
+    function errUserNotFound($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['USER_NOT_FOUND'], $internalMsg);
+        error(ResponseConstant::GLOBAL['USER_NOT_FOUND'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errUnauthenticated")) {
-    function errUnauthenticated($internalMsg = "")
+    function errUnauthenticated($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['UNAUTHENTICATED'], $internalMsg);
+        error(ResponseConstant::GLOBAL['UNAUTHENTICATED'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errUnableToUploadFile")) {
-    function errUnableToUploadFile($internalMsg = "")
+    function errUnableToUploadFile($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['UNABLE_TO_UPLOAD_FILE'], $internalMsg);
+        error(ResponseConstant::GLOBAL['UNABLE_TO_UPLOAD_FILE'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errNumberGeneratorInvalid")) {
-    function errNumberGeneratorInvalid($internalMsg = "")
+    function errNumberGeneratorInvalid($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['NUMBER_GENERATOR_INVALID'], $internalMsg);
+        error(ResponseConstant::GLOBAL['NUMBER_GENERATOR_INVALID'], $internalMsg, $status);
     }
 }
 
 if (!function_exists("errPermissionRestricted")) {
-    function errPermissionRestricted($internalMsg = "")
+    function errPermissionRestricted($internalMsg = "", $status = null)
     {
-        error(ResponseConstant::GLOBAL['PERMISSION_RESTRICTED'], $internalMsg);
+        error(ResponseConstant::GLOBAL['PERMISSION_RESTRICTED'], $internalMsg, $status);
     }
 }

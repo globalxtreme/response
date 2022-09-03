@@ -25,7 +25,7 @@ class ResponseBuilder implements ResponseBuilderContract
     /**
      * @var int
      */
-    public int $httpCode = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'];
+    public int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'];
 
 
     public function __construct()
@@ -92,13 +92,13 @@ class ResponseBuilder implements ResponseBuilderContract
     }
 
     /**
-     * @param int $code
+     * @param int $status
      *
      * @return void
      */
-    public function setHttpStatusCode(int $code)
+    public function setHttpStatus(int $status)
     {
-        $this->httpCode = $code;
+        $this->httpStatus = $status;
     }
 
     /**
@@ -118,7 +118,7 @@ class ResponseBuilder implements ResponseBuilderContract
     {
         $parse = $builder->parse;
         if (!$builder->isObject) {
-            return response()->json($parse, $this->httpCode);
+            return response()->json($parse, $this->httpStatus);
         }
 
         return $parse;

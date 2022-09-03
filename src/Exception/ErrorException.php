@@ -2,6 +2,7 @@
 
 namespace GlobalXtreme\Response\Exception;
 
+use GlobalXtreme\Response\Constant\ResponseConstant;
 use GlobalXtreme\Response\Response;
 use GlobalXtreme\Response\Status;
 use Exception;
@@ -11,10 +12,12 @@ class ErrorException extends Exception
     /**
      * @param array $error
      * @param string|null $internalMsg
+     * @param int $httpStatus
      * @param array|null $attributes
      */
     public function __construct(public array       $error,
                                 public string|null $internalMsg = null,
+                                public int         $httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'],
                                 public array|null  $attributes = null)
     {
         parent::__construct($this->error['msg']);
@@ -27,7 +30,7 @@ class ErrorException extends Exception
     public function render()
     {
         $error = new Status(false, $this->error, $this->internalMsg, $this->attributes);
-        return Response::json($error);
+        return Response::json($error, httpStatus: $this->httpStatus);
     }
 
 }
