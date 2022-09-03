@@ -2,8 +2,6 @@
 
 namespace GlobalXtreme\Response\Contract;
 
-use GlobalXtreme\Response\Parse\StatusParse;
-
 interface Status
 {
     /**
@@ -26,7 +24,7 @@ interface Status
     public function setAttributes(array|null $attributes = []);
 
     /**
-     * @return StatusParse
+     * @return void
      */
     public function result();
 

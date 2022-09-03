@@ -4,16 +4,9 @@ namespace GlobalXtreme\Response\Constant;
 
 class ResponseConstant
 {
-    /** --- HTTP STATUS CODE --- */
-    const HTTP_STATUS_CODE = [
-        'SUCCESS' => 200,
-        'BAD_REQUEST' => 400,
-        'INTERNAL_SERVER_ERROR' => 500
-    ];
-
     /** --- DEFAULT --- */
-    const SUCCESS = ['code' => self::HTTP_STATUS_CODE['SUCCESS'], 'msg' => 'Success'];
-    const ERROR = ['code' => 'ERR000', 'msg' => 'An error occurred'];
+    const SUCCESS = ['code' => 200, 'msg' => 'Success'];
+    const ERROR = ['code' => 500, 'msg' => 'An error occurred'];
 
     /** --- GLOBAL --- */
     const GLOBAL = [

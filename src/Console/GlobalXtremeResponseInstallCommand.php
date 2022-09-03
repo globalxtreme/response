@@ -117,7 +117,7 @@ class GlobalXtremeResponseInstallCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Services\Response';
+        return $rootNamespace . '\Packages\Response';
     }
 
     /**

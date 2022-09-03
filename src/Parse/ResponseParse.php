@@ -5,9 +5,19 @@ namespace GlobalXtreme\Response\Parse;
 class ResponseParse
 {
     /**
+     * @var string
+     */
+    public string $status = 'success';
+
+    /**
      * @var StatusParse|null
      */
-    public StatusParse|null $status = null;
+    public StatusParse|null $success = null;
+
+    /**
+     * @var StatusParse|null
+     */
+    public StatusParse|null $error = null;
 
     /**
      * @var array|object|null
