@@ -3,12 +3,12 @@
 namespace GlobalXtreme\Response\Builder;
 
 use GlobalXtreme\Parser\Parser;
+use GlobalXtreme\Response\Constant\ResponseConstant;
 use GlobalXtreme\Response\Contract\ResponseBuilder as ResponseBuilderContract;
 use GlobalXtreme\Response\Contract\Status;
 use GlobalXtreme\Response\Parse\ResponseParse;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 
 class ResponseBuilder implements ResponseBuilderContract
 {
@@ -21,6 +21,11 @@ class ResponseBuilder implements ResponseBuilderContract
      * @var bool
      */
     public bool $isObject = false;
+
+    /**
+     * @var int
+     */
+    public int $httpCode = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'];
 
 
     public function __construct()
@@ -41,10 +46,7 @@ class ResponseBuilder implements ResponseBuilderContract
         }
 
         if ($status->success) {
-            $this->parse->success = $status->result();
-        } else {
-            $this->parse->error = $status->result();
-            $this->parse->status = 'error';
+            $this->parse->status = $status->result();
         }
     }
 
@@ -90,6 +92,16 @@ class ResponseBuilder implements ResponseBuilderContract
     }
 
     /**
+     * @param int $code
+     *
+     * @return void
+     */
+    public function setHttpStatusCode(int $code)
+    {
+        $this->httpCode = $code;
+    }
+
+    /**
      * @return void
      */
     public function isDataObject()
@@ -106,7 +118,7 @@ class ResponseBuilder implements ResponseBuilderContract
     {
         $parse = $builder->parse;
         if (!$builder->isObject) {
-            return response()->json($parse, 200);
+            return response()->json($parse, $this->httpCode);
         }
 
         return $parse;

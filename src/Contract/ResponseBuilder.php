@@ -29,6 +29,13 @@ interface ResponseBuilder
     public function setPagination($data);
 
     /**
+     * @param int $code
+     *
+     * @return void
+     */
+    public function setHttpStatusCode(int $code);
+
+    /**
      * @return void
      */
     public function isDataObject();
