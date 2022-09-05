@@ -18,7 +18,7 @@ if (!function_exists("success")) {
      *
      * @return \Illuminate\Http\JsonResponse|mixed
      */
-    function success($data = null, array|null $success = null, string|null $internalMsg = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'],  array|null $attributes = null, bool $isObject = false, array|null $pagination = null)
+    function success($data = null, array|null $success = null, string|null $internalMsg = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'],  array|null $attributes = null, bool $isObject = false, array|null $pagination = null)
     {
         $success = $success ?: ResponseConstant::SUCCESS;
 
