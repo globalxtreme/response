@@ -7,5 +7,5 @@ use GlobalXtreme\Response\Constant\ResponseConstant;
 class Success extends ResponseConstant
 {
     /** --- DEFAULT --- */
-    const DEFAULT = ['code' => 1, 'msg' => 'Action successfully'];
+    const DEFAULT = ['code' => 200, 'msg' => 'Action successfully'];
 }
