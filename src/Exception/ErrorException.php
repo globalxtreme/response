@@ -12,15 +12,19 @@ class ErrorException extends Exception
     /**
      * @param array $error
      * @param string|null $internalMsg
-     * @param int $httpStatus
+     * @param int|null $httpStatus
      * @param array|null $attributes
      */
     public function __construct(public array       $error,
                                 public string|null $internalMsg = null,
-                                public int         $httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'],
+                                public int|null    $httpStatus = null,
                                 public array|null  $attributes = null)
     {
         parent::__construct($this->error['msg']);
+
+        if (!$this->httpStatus) {
+            $this->httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'];
+        }
     }
 
 

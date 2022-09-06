@@ -13,11 +13,11 @@ abstract class AbstractResponse implements Contract\AbstractResponse
      * @param Status|null $status
      * @param $data
      * @param $pagination
-     * @param int $httpStatus
+     * @param int|null $httpStatus
      *
      * @return JsonResponse|mixed
      */
-    public static function json(Status|null $status = null, $data = null, $pagination = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
+    public static function json(Status|null $status = null, $data = null, $pagination = null, int|null $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
     {
         $builder = new ResponseBuilder();
 
@@ -37,11 +37,11 @@ abstract class AbstractResponse implements Contract\AbstractResponse
      * @param Status|null $status
      * @param $data
      * @param $pagination
-     * @param int $httpStatus
+     * @param int|null $httpStatus
      *
      * @return JsonResponse|mixed
      */
-    public static function object(Status|null $status = null, $data = null, $pagination = null, int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
+    public static function object(Status|null $status = null, $data = null, $pagination = null, int|null $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
     {
         $builder = new ResponseBuilder();
 

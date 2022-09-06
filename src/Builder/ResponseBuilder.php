@@ -45,7 +45,7 @@ class ResponseBuilder implements ResponseBuilderContract
             $status = new \GlobalXtreme\Response\Status();
         }
 
-        if ($status->success) {
+        if ($status) {
             $this->parse->status = $status->result();
         }
     }
