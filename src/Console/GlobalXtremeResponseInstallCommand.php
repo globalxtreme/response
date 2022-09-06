@@ -58,9 +58,9 @@ class GlobalXtremeResponseInstallCommand extends GeneratorCommand
     public function handle()
     {
         $stubs = [
-            'gx.error.stub' => 'Constant/Error',
-            'gx.success.stub' => 'Constant/Success',
-            'gx.responses.stub' => 'Status/globals'
+            'response.error.stub' => 'Constant/Error',
+            'response.success.stub' => 'Constant/Success',
+            'response.default.stub' => 'Status/globals'
         ];
         foreach ($stubs as $key => $stub) {
 
