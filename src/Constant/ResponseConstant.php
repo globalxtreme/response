@@ -42,5 +42,9 @@ class ResponseConstant
             'code' => 'GL0008',
             'msg' => 'Error. User\'s permission restricted',
         ],
+        'MESSAGE_BROKER_FAILED_NOT_FOUND' => [
+            'code' => 'GL0009',
+            'msg' => 'Component not found'
+        ],
     ];
 }

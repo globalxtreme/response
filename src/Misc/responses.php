@@ -57,3 +57,10 @@ if (!function_exists("errPermissionRestricted")) {
         error(ResponseConstant::GLOBAL['PERMISSION_RESTRICTED'], $internalMsg);
     }
 }
+
+if (!function_exists("errMessageBrokerFailedNotFound")) {
+    function errMessageBrokerFailedNotFound($internalMsg = "", $status = null)
+    {
+        error(ResponseConstant::GLOBAL['MESSAGE_BROKER_FAILED_NOT_FOUND'], $internalMsg, $status);
+    }
+}
