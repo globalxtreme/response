@@ -20,6 +20,8 @@ class ErrorException extends Exception
                                 public int|null    $httpStatus = null,
                                 public array|null  $attributes = null)
     {
+        error_reporting(0);
+
         parent::__construct($this->error['msg']);
 
         if (!$this->httpStatus) {
