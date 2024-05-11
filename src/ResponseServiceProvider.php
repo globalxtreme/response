@@ -8,14 +8,6 @@ class ResponseServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-
-            $this->commands([
-                Console\GlobalXtremeResponseInstallCommand::class
-            ]);
-
-        }
-
         $this->publishes([
             __DIR__.'/../config/http-status.php' => config_path('http-status.php'),
         ],'response-config');

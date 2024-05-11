@@ -10,21 +10,20 @@ use Illuminate\Http\JsonResponse;
 abstract class AbstractResponse implements Contract\AbstractResponse
 {
     /**
-     * @param Status|null $status
+     * @param Status $status
      * @param $data
      * @param $pagination
      * @param int|null $httpStatus
      *
      * @return JsonResponse|mixed
      */
-    public static function json(Status|null $status = null, $data = null, $pagination = null, int|null $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
+    public static function json(Status $status = null, $data = null, $pagination = null)
     {
         $builder = new ResponseBuilder();
 
         $builder->setStatus($status);
         $builder->setData($data);
         $builder->setPagination($pagination);
-        $builder->setHttpStatus($httpStatus);
 
         if (!$builder->parse->pagination) {
             unset($builder->parse->pagination);
@@ -34,21 +33,20 @@ abstract class AbstractResponse implements Contract\AbstractResponse
     }
 
     /**
-     * @param Status|null $status
+     * @param Status $status
      * @param $data
      * @param $pagination
      * @param int|null $httpStatus
      *
      * @return JsonResponse|mixed
      */
-    public static function object(Status|null $status = null, $data = null, $pagination = null, int|null $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'])
+    public static function object(Status $status = null, $data = null, $pagination = null)
     {
         $builder = new ResponseBuilder();
 
         $builder->setStatus($status);
         $builder->setData($data);
         $builder->setPagination($pagination);
-        $builder->setHttpStatus($httpStatus);
         $builder->isDataObject();
 
         if (!$builder->parse->pagination) {

@@ -3,7 +3,6 @@
 namespace GlobalXtreme\Response\Builder;
 
 use GlobalXtreme\Parser\Parser;
-use GlobalXtreme\Response\Constant\ResponseConstant;
 use GlobalXtreme\Response\Contract\ResponseBuilder as ResponseBuilderContract;
 use GlobalXtreme\Response\Contract\Status;
 use GlobalXtreme\Response\Parse\ResponseParse;
@@ -21,11 +20,6 @@ class ResponseBuilder implements ResponseBuilderContract
      * @var bool
      */
     public bool $isObject = false;
-
-    /**
-     * @var int
-     */
-    public int $httpStatus = ResponseConstant::HTTP_STATUS_CODE['SUCCESS'];
 
 
     public function __construct()
@@ -75,7 +69,7 @@ class ResponseBuilder implements ResponseBuilderContract
             return;
         }
 
-        if (is_array($data) && array_key_exists('totalPages', $data)) {
+        if (is_array($data) && array_key_exists('totalPage', $data)) {
             $this->parse->pagination = $data;
             return;
         }
@@ -89,16 +83,6 @@ class ResponseBuilder implements ResponseBuilderContract
         }
 
         $this->parse->pagination = pagination($data);
-    }
-
-    /**
-     * @param int $status
-     *
-     * @return void
-     */
-    public function setHttpStatus(int $status)
-    {
-        $this->httpStatus = $status;
     }
 
     /**
@@ -118,7 +102,7 @@ class ResponseBuilder implements ResponseBuilderContract
     {
         $parse = $builder->parse;
         if (!$builder->isObject) {
-            return response()->json($parse, $this->httpStatus);
+            return response()->json($parse, $parse->status->code);
         }
 
         return $parse;

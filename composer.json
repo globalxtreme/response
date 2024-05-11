@@ -19,9 +19,9 @@
   },
   "require": {
     "php": "8.*",
-    "globalxtreme/parser": "^1.1",
-    "illuminate/support": "^8.83|^9.0",
-    "illuminate/console": "^8.0|^9.0"
+    "globalxtreme/parser": "^2.0",
+    "illuminate/support": "^8.83|^9.0|^10.0|^11.0",
+    "illuminate/console": "^8.0|^9.0|^10.0|^11.0"
   },
   "extra": {
     "laravel": {
