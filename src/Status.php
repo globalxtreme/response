@@ -14,18 +14,18 @@ class Status implements Contract\Status
 
 
     /**
-     * @param bool $success
-     * @param array|null $status
+     * @param int $httpStatus
+     * @param string $message
      * @param string|null $internalMsg
      * @param object|array|null $attributes
      */
-    public function __construct(public bool              $success = true,
-                                public array|null        $status = null,
+    public function __construct(public int               $httpStatus = 200,
+                                public string            $message = 'Success',
                                 public string|null       $internalMsg = null,
                                 public object|array|null $attributes = null)
     {
-        if (!$this->status) {
-            $this->setDefaultStatus();
+        if (!$this->message) {
+            $this->setDefaultMessage();
         }
 
         $this->parse = new StatusParse();
@@ -35,9 +35,9 @@ class Status implements Contract\Status
     /**
      * @return void
      */
-    public function setDefaultStatus()
+    public function setDefaultMessage()
     {
-        $this->status = $this->success ? ResponseConstant::SUCCESS : ResponseConstant::ERROR;
+        $this->message = $this->httpStatus == 200 ? 'Success' : 'An error occurred';
     }
 
     /**
@@ -65,8 +65,8 @@ class Status implements Contract\Status
      */
     public function result()
     {
-        $this->parse->code = $this->status['code'];
-        $this->parse->message = $this->status['msg'];
+        $this->parse->code = $this->httpStatus;
+        $this->parse->message = $this->message;
         $this->parse->internalMsg = $this->internalMsg;
         $this->parse->attributes = $this->attributes;
 

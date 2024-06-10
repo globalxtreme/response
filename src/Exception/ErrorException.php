@@ -10,23 +10,19 @@ use Exception;
 class ErrorException extends Exception
 {
     /**
-     * @param array $error
+     * @param int $httpStatus
+     * @param string $message
      * @param string|null $internalMsg
-     * @param int|null $httpStatus
      * @param array|null $attributes
      */
-    public function __construct(public array       $error,
+    public function __construct(public int         $httpStatus,
+                                string             $message,
                                 public string|null $internalMsg = null,
-                                public int|null    $httpStatus = null,
                                 public array|null  $attributes = null)
     {
         error_reporting(0);
 
-        parent::__construct($this->error['msg']);
-
-        if (!$this->httpStatus) {
-            $this->httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'];
-        }
+        parent::__construct($message);
     }
 
 
@@ -35,8 +31,8 @@ class ErrorException extends Exception
      */
     public function render()
     {
-        $error = new Status(false, $this->error, $this->internalMsg, $this->attributes);
-        return Response::json($error, httpStatus: $this->httpStatus);
+        $error = new Status($this->httpStatus, $this->message, $this->internalMsg, $this->attributes);
+        return Response::json($error);
     }
 
 }

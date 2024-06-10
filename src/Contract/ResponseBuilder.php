@@ -29,13 +29,6 @@ interface ResponseBuilder
     public function setPagination($data);
 
     /**
-     * @param int $status
-     *
-     * @return void
-     */
-    public function setHttpStatus(int $status);
-
-    /**
      * @return void
      */
     public function isDataObject();

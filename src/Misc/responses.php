@@ -1,59 +1,64 @@
 <?php
 
-use GlobalXtreme\Response\Constant\ResponseConstant;
-
 if (!function_exists("errOccurred")) {
-    function errOccurred($internalMsg = "", $status = null)
+    function errOccurred($internalMsg = "")
     {
-        error(ResponseConstant::ERROR, $internalMsg, $status);
+        error(500, "An error occurred!", $internalMsg);
     }
 }
 
 if (!function_exists("errCredentialIncorrect")) {
-    function errCredentialIncorrect($internalMsg = "", $status = 400)
+    function errCredentialIncorrect($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['CREDENTIAL_INCORRECT'], $internalMsg, $status);
+        error(400, "The credentials provided are incorrect", $internalMsg);
     }
 }
 
 if (!function_exists("errUnableToGenerateToken")) {
-    function errUnableToGenerateToken($internalMsg = "", $status = null)
+    function errUnableToGenerateToken($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['UNABLE_TO_GENERATE_TOKEN'], $internalMsg, $status);
+        error(500, "Unable to generate token", $internalMsg);
     }
 }
 
 if (!function_exists("errUserNotFound")) {
-    function errUserNotFound($internalMsg = "", $status = 404)
+    function errUserNotFound($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['USER_NOT_FOUND'], $internalMsg, $status);
+        error(401, "User not found. Must be login first", $internalMsg);
     }
 }
 
 if (!function_exists("errUnauthenticated")) {
-    function errUnauthenticated($internalMsg = "", $status = 401)
+    function errUnauthenticated($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['UNAUTHENTICATED'], $internalMsg, $status);
+        error(401, "Invalid token. Please re-login!!", $internalMsg);
     }
 }
 
 if (!function_exists("errUnableToUploadFile")) {
-    function errUnableToUploadFile($internalMsg = "", $status = null)
+    function errUnableToUploadFile($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['UNABLE_TO_UPLOAD_FILE'], $internalMsg, $status);
+        error(500, "Unable to upload file", $internalMsg);
     }
 }
 
 if (!function_exists("errNumberGeneratorInvalid")) {
-    function errNumberGeneratorInvalid($internalMsg = "", $status = null)
+    function errNumberGeneratorInvalid($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['NUMBER_GENERATOR_INVALID'], $internalMsg, $status);
+        error(500, "Number generator invalid", $internalMsg);
     }
 }
 
 if (!function_exists("errPermissionRestricted")) {
-    function errPermissionRestricted($internalMsg = "", $status = 401)
+    function errPermissionRestricted($internalMsg = "")
     {
-        error(ResponseConstant::GLOBAL['PERMISSION_RESTRICTED'], $internalMsg, $status);
+        error(401, "Error. User\'s permission restricted", $internalMsg);
+    }
+}
+
+if (!function_exists("errMessageBrokerFailedNotFound")) {
+    function errMessageBrokerFailedNotFound($internalMsg = "")
+    {
+        error(404, "Message broker failed not found", $internalMsg);
     }
 }

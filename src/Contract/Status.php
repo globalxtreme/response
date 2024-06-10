@@ -9,7 +9,7 @@ interface Status
     /**
      * @return void
      */
-    public function setDefaultStatus();
+    public function setDefaultMessage();
 
     /**
      * @param string $internalMsg
