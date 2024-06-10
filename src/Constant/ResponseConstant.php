@@ -23,7 +23,7 @@ class ResponseConstant
         ],
         'CREDENTIAL_INCORRECT' => [
             'code' => 'GL0002',
-            'msg' => 'The provided credentials are incorrect',
+            'msg' => 'The credentials provided are incorrect',
         ],
         'UNABLE_TO_GENERATE_TOKEN' => [
             'code' => 'GL0003',
@@ -31,11 +31,11 @@ class ResponseConstant
         ],
         'USER_NOT_FOUND' => [
             'code' => 'GL0004',
-            'msg' => 'User request not found. Must be login first',
+            'msg' => 'User not found. Must be login first',
         ],
         'UNAUTHENTICATED' => [
             'code' => 'GL0005',
-            'msg' => 'Unauthenticated.',
+            'msg' => 'Invalid token. Please re-login!!',
         ],
         'UNABLE_TO_UPLOAD_FILE' => [
             'code' => 'GL0006',
@@ -51,7 +51,7 @@ class ResponseConstant
         ],
         'MESSAGE_BROKER_FAILED_NOT_FOUND' => [
             'code' => 'GL0009',
-            'msg' => 'Component not found'
+            'msg' => 'Message broker not found'
         ],
     ];
 }
