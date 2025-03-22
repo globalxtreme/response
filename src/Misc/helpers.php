@@ -83,10 +83,11 @@ if (!function_exists("pagination")) {
             }
 
             return [
+                'total' => $data->total(),
                 'count' => $data->count(),
                 'currentPage' => $data->currentPage(),
                 'perPage' => $data->perPage(),
-                'totalPage' => $data->total(),
+                'totalPage' => $data->lastPage(),
                 'links' => [
                     'next' => $next,
                     'previous' => $prev
