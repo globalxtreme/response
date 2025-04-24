@@ -40,7 +40,7 @@ if (!function_exists("error")) {
      * @param array|null $attributes
      *
      * @return \Illuminate\Http\JsonResponse|mixed
-     * @throws ErrorException
+     * @throws \GlobalXtreme\Response\Exception\ErrorException
      */
     function error(array|null $error = null, string|null $internalMsg = null, int|null $httpStatus = null, array|null $attributes = null)
     {
@@ -58,9 +58,14 @@ if (!function_exists("exception")) {
      * @param $exception
      *
      * @return mixed
+     * @throws \GlobalXtreme\Response\Exception\ErrorException
      */
     function exception($exception)
     {
+        if (!($exception instanceof \Exception)) {
+            throw new \GlobalXtreme\Response\Exception\ErrorException(ResponseConstant::ERROR, $exception->getMessage(), ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR']);
+        }
+
         throw $exception;
     }
 
