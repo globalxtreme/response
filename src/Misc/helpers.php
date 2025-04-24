@@ -1,6 +1,5 @@
 <?php
 
-use GlobalXtreme\Response\Constant\ResponseConstant;
 use GlobalXtreme\Response\Response;
 use GlobalXtreme\Response\Status;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -40,7 +39,7 @@ if (!function_exists("error")) {
      */
     function error(int $httpStatus = 500, string $message = 'An error occurred!', string|null $internalMsg = null, array|null $attributes = null)
     {
-        throw new \GlobalXtreme\Response\Exception\ErrorException($httpStatus, $message, $internalMsg, $attributes);
+        throw new ErrorException($httpStatus, $message, $internalMsg, $attributes);
     }
 
 }
@@ -51,9 +50,14 @@ if (!function_exists("exception")) {
      * @param $exception
      *
      * @return mixed
+     * @throws \GlobalXtreme\Response\Exception\ErrorException
      */
     function exception($exception)
     {
+        if (!($exception instanceof \Exception)) {
+            throw new ErrorException(500, "Internal server error!", $exception->getMessage());
+        }
+
         throw $exception;
     }
 
