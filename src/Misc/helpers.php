@@ -35,11 +35,11 @@ if (!function_exists("error")) {
      * @param array|null $attributes
      *
      * @return \Illuminate\Http\JsonResponse|mixed
-     * @throws ErrorException
+     * @throws \GlobalXtreme\Response\Exception\ErrorException
      */
     function error(int $httpStatus = 500, string $message = 'An error occurred!', string|null $internalMsg = null, array|null $attributes = null)
     {
-        throw new ErrorException($httpStatus, $message, $internalMsg, $attributes);
+        throw new \GlobalXtreme\Response\Exception\ErrorException($httpStatus, $message, $internalMsg, $attributes);
     }
 
 }
@@ -55,7 +55,7 @@ if (!function_exists("exception")) {
     function exception($exception)
     {
         if (!($exception instanceof \Exception)) {
-            throw new ErrorException(500, "Internal server error!", $exception->getMessage());
+            throw new \GlobalXtreme\Response\Exception\ErrorException(500, "Internal server error!", $exception->getMessage());
         }
 
         throw $exception;
