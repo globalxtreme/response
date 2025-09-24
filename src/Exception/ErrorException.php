@@ -11,18 +11,23 @@ class ErrorException extends Exception
 {
     /**
      * @param int $httpStatus
-     * @param string $message
+     * @param string $customMessage
      * @param string|null $internalMsg
      * @param array|null $attributes
      */
     public function __construct(public int         $httpStatus,
-                                string             $message,
+                                public string      $customMessage,
                                 public string|null $internalMsg = null,
                                 public array|null  $attributes = null)
     {
         error_reporting(0);
 
-        parent::__construct($message);
+        $message = $this->customMessage;
+        if ($this->internalMsg) {
+            $message .= ". $this->internalMsg";
+        }
+
+        parent::__construct("$message. Code: $this->httpStatus");
     }
 
 
@@ -31,7 +36,7 @@ class ErrorException extends Exception
      */
     public function render()
     {
-        $error = new Status($this->httpStatus, $this->message, $this->internalMsg, $this->attributes);
+        $error = new Status($this->httpStatus, $this->customMessage, $this->internalMsg, $this->attributes);
         return Response::json($error);
     }
 
