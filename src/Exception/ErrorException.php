@@ -22,11 +22,16 @@ class ErrorException extends Exception
     {
         error_reporting(0);
 
-        parent::__construct($this->error['msg']);
-
         if (!$this->httpStatus) {
             $this->httpStatus = ResponseConstant::HTTP_STATUS_CODE['INTERNAL_SERVER_ERROR'];
         }
+
+        $message = $this->error['msg'];
+        if ($this->internalMsg) {
+            $message .= ". $this->internalMsg";
+        }
+
+        parent::__construct("$message. Code: $this->httpStatus");
     }
 
 
