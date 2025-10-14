@@ -52,7 +52,7 @@ if (!function_exists("errNumberGeneratorInvalid")) {
 if (!function_exists("errPermissionRestricted")) {
     function errPermissionRestricted($internalMsg = "")
     {
-        error(401, "Error. User\'s permission restricted", $internalMsg);
+        error(403, "Error. User\'s permission restricted", $internalMsg);
     }
 }
 
