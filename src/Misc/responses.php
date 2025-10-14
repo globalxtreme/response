@@ -52,7 +52,7 @@ if (!function_exists("errNumberGeneratorInvalid")) {
 }
 
 if (!function_exists("errPermissionRestricted")) {
-    function errPermissionRestricted($internalMsg = "", $status = 401)
+    function errPermissionRestricted($internalMsg = "", $status = 403)
     {
         error(ResponseConstant::GLOBAL['PERMISSION_RESTRICTED'], $internalMsg, $status);
     }
